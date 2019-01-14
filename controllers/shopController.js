@@ -12,6 +12,9 @@ module.exports.getIndex = (req, res, next) => {
 module.exports.getAbout = (req, res, next) => {
   res.render("about");
 };
+module.exports.getContact = (req, res, next) => {
+  res.render("contact");
+};
 module.exports.getAddProduct = (req, res, next) => {
   res.render("add-product");
 };

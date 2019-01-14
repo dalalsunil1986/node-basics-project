@@ -4,6 +4,7 @@ const shopController = require("../controllers/shopController");
 
 router.get("/", shopController.getIndex);
 router.get("/about", shopController.getAbout);
+router.get("/about", shopController.getContact);
 router.get("/add-product", shopController.getAddProduct);
 router.post("/add-product", shopController.postAddProduct);
 
