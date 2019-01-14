@@ -1,0 +1,20 @@
+<% include layouts/header %> <% include layouts/navbar %>
+
+<div class="container">
+  <div class="row">
+    <% if(products.length === 0) {%>
+    <div class="col mt-5"><h1>there are no products in database</h1></div>
+    <%} else {%> <% products.forEach(function(product){%>
+    <div class="col-10 col-md-4 mx-auto my-3">
+      <div class="card">
+        <img src="<%= product.image%>" class="card-img-top" alt="" />
+        <div class="card-body text-capitalize">
+          <h1>title : <%= product.name %></h1>
+          <h6>price : $ <%= product.price %></h6>
+        </div>
+      </div>
+    </div>
+    <%}) %> <%}%>
+  </div>
+</div>
+<% include layouts/footer %>

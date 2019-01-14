@@ -1,0 +1,6 @@
+body {
+  color: red;
+}
+.card-img-top {
+  max-height: 20rem;
+}
