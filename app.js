@@ -9,6 +9,16 @@ const mongoose = require("mongoose");
 // own modules
 const shopRoutes = require("./routes/shopRoutes");
 
+mongoose
+  .connect(
+    "mongodb+srv://john:tempPassword1@cluster0-mtnoz.mongodb.net/example?retryWrites=true",
+    { useNewUrlParser: true }
+  )
+  .then(result => {
+    console.log("connected to mongo db");
+  })
+  .catch(err => console.log(err));
+
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,16 +30,6 @@ app.use(shopRoutes);
 
 const port = process.env.PORT || 3000;
 
-mongoose
-  .connect(
-    "mongodb+srv://john:tempPassword1@cluster0-mtnoz.mongodb.net/example?retryWrites=true",
-    { useNewUrlParser: true }
-  )
-  .then(result => {
-    console.log("connected to mongo db");
-
-    app.listen(port, () => {
-      console.log(`server is listening on port ${3000}`);
-    });
-  })
-  .catch(err => console.log(err));
+app.listen(port, () => {
+  console.log(`server is listening on port ${3000}`);
+});
