@@ -1,9 +1,13 @@
 const Product = require("../models/product");
 
 module.exports.getIndex = (req, res, next) => {
-  res.render("index", {
-    products: []
-  });
+  Product.find()
+    .then(products => {
+      res.render("index", {
+        products
+      });
+    })
+    .catch(err => console.log(err));
 };
 module.exports.getAbout = (req, res, next) => {
   res.render("about");
