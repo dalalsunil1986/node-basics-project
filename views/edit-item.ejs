@@ -1,0 +1,70 @@
+<% include layouts/header %> <% include layouts/navbar %>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-10 mx-auto col-md-8  my-5 text-center">
+        <h3 class="text-capitalize mb-5">edit item</h3>
+        <form action="/edit-item" method="post">
+          <!-- name -->
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control text-capitalize"
+              name="name"
+              placeholder="name"
+              required
+              value="<%= item.name %>"
+            />
+          </div>
+          <!--end of  name -->
+          <!-- image -->
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control text-capitalize"
+              name="image"
+              placeholder="image"
+              required
+              value="<%= item.image %>"
+            />
+          </div>
+          <!--end of  image -->
+          <!-- price -->
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control text-capitalize"
+              name="price"
+              placeholder="price"
+              required
+              step="any"
+              value="<%= item.price %>"
+            />
+          </div>
+          <!--end of  price -->
+          <!-- description -->
+          <div class="form-group">
+            <textarea
+              rows="5"
+              name="description"
+              class="form-control"
+              placeholder="description"
+              required
+            >
+            <%= item.description %>
+            </textarea>
+          </div>
+          <input type="hidden" name="id" value="<%= item._id %>" />
+          <!--end of  description -->
+          <button
+            type="submit"
+            class="btn btn-block btn-secondary text-capitalized"
+          >
+            submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<% include layouts/footer %>

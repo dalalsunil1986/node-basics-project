@@ -1,6 +1,19 @@
-body {
-  color: red;
+:root {
+  --mainBrown: #bf9456;
+  --mainWhite: #fff;
+  --mainDark: #222;
 }
-.card-img-top {
-  max-height: 20rem;
+body {
+  background: var(--mainWhite);
+  color: var(--mainDark);
+}
+.navbar {
+  background: var(--mainBrown);
+}
+.product img {
+  height: 239px;
+}
+
+.product h5 {
+  color: var(--mainBrown);
 }

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 // native modules
 const path = require("path");
 // third party
@@ -7,7 +9,9 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 // own modules
 const userRoutes = require("./routes/userRoutes");
-
+const adminRoutes = require("./routes/adminRoutes");
+//db
+require("./db/config");
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -16,6 +20,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(userRoutes);
+app.use(adminRoutes);
 
 const port = process.env.PORT || 3000;
 
